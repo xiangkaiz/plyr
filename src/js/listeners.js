@@ -444,6 +444,25 @@ class Listeners {
       controls.setDownloadUrl.call(player);
     });
 
+    // Picture-in-picture - update active state (also catches changes made
+    // outside of Plyr, e.g. the browser's native PiP controls)
+    on.call(player, player.media, 'enterpictureinpicture leavepictureinpicture', (event) => {
+      toggleClass(
+        elements.container,
+        player.config.classNames.pip.active,
+        event.type === 'enterpictureinpicture',
+      );
+    });
+
+    // Safari fires its own proprietary event; normalize it to the standard ones
+    on.call(player, player.media, 'webkitpresentationmodechanged', () => {
+      triggerEvent.call(
+        player,
+        player.media,
+        player.pip ? 'enterpictureinpicture' : 'leavepictureinpicture',
+      );
+    });
+
     // Proxy events to container
     // Bubble up key events for Edge
     const proxyEvents = player.config.events.concat(['keyup', 'keydown']).join(' ');

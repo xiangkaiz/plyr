@@ -260,6 +260,8 @@ const defaults = {
     'download',
     'enterfullscreen',
     'exitfullscreen',
+    'enterpictureinpicture',
+    'leavepictureinpicture',
     'captionsenabled',
     'captionsdisabled',
     'languagechange',

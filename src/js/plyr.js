@@ -989,8 +989,6 @@ class Plyr {
 
   /**
    * Toggle picture-in-picture playback on WebKit/MacOS
-   * TODO: update player with state, support, enabled
-   * TODO: detect outside changes
    */
   set pip(input) {
     // Bail if no support

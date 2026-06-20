@@ -264,6 +264,8 @@ declare namespace Plyr {
     ended: PlyrEvent;
     enterfullscreen: PlyrEvent;
     exitfullscreen: PlyrEvent;
+    enterpictureinpicture: PlyrEvent;
+    leavepictureinpicture: PlyrEvent;
     captionsenabled: PlyrEvent;
     captionsdisabled: PlyrEvent;
     languagechange: PlyrEvent;
